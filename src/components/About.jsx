@@ -1,5 +1,9 @@
+import Navbar from "./Navbar"
 export default function About( ) {
   return (
 
-    <><h1>hiii about</h1></>
+    <>
+ <Navbar />
+    <h1>hi About</h1>
+    </>
   )}
