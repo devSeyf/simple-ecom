@@ -1,11 +1,19 @@
 
 import React from "react";
-import {Link} from "react-router-dom";
+import {Link,NavLink} from "react-router-dom";
 export default function Navbar() {
+  const navLinksStyle =({isActive}) => {
+    return {
+      fontWeight: isActive ? "bold" :"normal",
+      color: isActive ? "red" :"black"
+    }
+  }
   return (
+
+
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
-        <a className="navbar-brand" href="#">
+        <a className="navbar-brand" href="/">
           Logo
         </a>
         <button
@@ -23,7 +31,11 @@ export default function Navbar() {
               <Link className="nav-link active" to="/">Home</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/about">About</Link>
+
+
+              <NavLink  to="/about" style={navLinksStyle}>
+                    About
+              </NavLink>
             </li>
 
                 <li className="nav-item">
