@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Product from "./Product";
+import ProductDetails from "./ProductDetails";
 
 
 
@@ -26,6 +27,7 @@ export default function ProductsList() {
           {data.map((product) => (
             <div className="col-3" key={product.id}>
               <Product item={product} />
+             
             </div>
           ))}
 
