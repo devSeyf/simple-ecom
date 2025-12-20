@@ -41,7 +41,9 @@ export default function ProductsList() {
         <h2 className="text-center p-3">Our Products</h2>
 
         <div className="container">
-
+          <button   onClick={() => {
+                  getProducts()
+              }} className="btn btn-dark p-2 m-1 " >All </button>
           {
             categories.map((i) => {
               return <button key={i} onClick={() => {
