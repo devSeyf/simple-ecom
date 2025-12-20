@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
 import Product from "./Product";
 import ProductDetails from "./ProductDetails";
-
-
-
 export default function ProductsList() {
   const [data, setData] = useState([]);
   const [categories, setCategory] = useState([]);
@@ -24,29 +21,49 @@ export default function ProductsList() {
       .then(response => response.json())
       .then(categories => setCategory(categories));
 
-  }
-  useEffect(() => {
-    getProducts()
-    getCategories()
+ }
 
-  }, []);
+    const getSpecificCategories = (n) => {
+      fetch(`${api_url}/category/${n} `)
+        .then(response => response.json())
+        .then((data)=> setData(data));
 
-  return (
-    <>
-      <h2 className="text-center p-3">Our Products</h2>
 
-      <div className="container">
-        <div className="row">
+    }
+    useEffect(() => {
+      getProducts()
+      getCategories()
 
-          {data.map((product) => (
-            <div className="col-3" key={product.id}>
-              <Product item={product} showButton={true} />
+    }, []);
 
-            </div>
-          ))}
+    return (
+      <>
+        <h2 className="text-center p-3">Our Products</h2>
 
+        <div className="container">
+
+          {
+            categories.map((i) => {
+              return <button key={i} onClick={() => {
+                getSpecificCategories(i)
+              }} className="btn btn-dark p-2 m-1 " >{i} </button>
+            })
+          }
+
+
+
+
+          <div className="row">
+
+            {data.map((product) => (
+              <div className="col-3" key={product.id}>
+                <Product item={product} showButton={true} />
+
+              </div>
+            ))}
+
+          </div>
         </div>
-      </div>
-    </>
-  );
-}
+      </>
+    );
+  }
