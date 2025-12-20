@@ -31,13 +31,16 @@ export default function Navbar() {
             <span className="block rounded-full px-4 py-2 hover:bg-muted">Home</span>
           </NavLink>
 
+        <NavLink to="/categories" className={navLinkClass}>
+            <span className="block rounded-full px-4 py-2 hover:bg-muted">Categories</span>
+          </NavLink>
+
+
           <NavLink to="/about" className={navLinkClass}>
             <span className="block rounded-full px-4 py-2 hover:bg-muted">About</span>
           </NavLink>
 
-          <NavLink to="/categories" className={navLinkClass}>
-            <span className="block rounded-full px-4 py-2 hover:bg-muted">Categories</span>
-          </NavLink>
+  
         </nav>
 
         {/* Right: Actions */}
