@@ -1,49 +1,91 @@
+import { NavLink, Link } from "react-router-dom"
+import { Button } from "@/components/ui/button"
+import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from "@/components/ui/sheet"
 
-import React from "react";
-import {Link,NavLink} from "react-router-dom";
+const navLinkClass = ({ isActive }) =>
+  [
+    "text-sm transition-colors",
+    isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground",
+  ].join(" ")
+
 export default function Navbar() {
-  const navLinksStyle =({isActive}) => {
-    return {
-      fontWeight: isActive ? "bold" :"normal",
-      color: isActive ? "red" :"black"
-    }
-  }
   return (
+    <header className="sticky top-0 z-50 w-full border-b bg-background/70 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
+        {/* Left: Logo */}
+        <Link to="/" className="group flex items-center gap-2">
+          <div className="grid h-9 w-9 place-items-center rounded-xl bg-foreground text-background font-bold">
+            S
+          </div>
+          <div className="leading-tight">
+            <div className="text-sm font-semibold">SimpleEcom</div>
+            <div className="text-xs text-muted-foreground group-hover:text-foreground transition">
+              shop smart
+            </div>
+          </div>
+        </Link>
 
+        {/* Center: Desktop nav */}
+        <nav className="hidden md:flex items-center gap-1 rounded-full border bg-background/60 p-1 backdrop-blur">
+          <NavLink to="/" className={navLinkClass}>
+            <span className="block rounded-full px-4 py-2 hover:bg-muted">Home</span>
+          </NavLink>
 
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="container">
-        <a className="navbar-brand" href="/">
-          Logo
-        </a>
-        <button
-          className="navbar-toggler"
-          type="button"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
+          <NavLink to="/about" className={navLinkClass}>
+            <span className="block rounded-full px-4 py-2 hover:bg-muted">About</span>
+          </NavLink>
 
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav mb-2 mb-lg-0 ms-auto">
-            <li className="nav-item">
+          <NavLink to="/categories" className={navLinkClass}>
+            <span className="block rounded-full px-4 py-2 hover:bg-muted">Categories</span>
+          </NavLink>
+        </nav>
 
+        {/* Right: Actions */}
+        <div className="hidden md:flex items-center gap-2">
+          <Button variant="outline" className="rounded-full">
+            Sign in
+          </Button>
+          <Button className="rounded-full">Shop now</Button>
+        </div>
 
-              <Link className="nav-link active" to="/">Home</Link>
-            </li>
-            <li className="nav-item">
+        {/* Mobile */}
+        <div className="md:hidden">
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="outline" size="icon" className="rounded-full" aria-label="Open menu">
+                ☰
+              </Button>
+            </SheetTrigger>
 
+            <SheetContent side="right" className="w-80">
+              <SheetHeader>
+                <SheetTitle>Menu</SheetTitle>
+              </SheetHeader>
 
-              <NavLink  to="/about" style={navLinksStyle}>
-                    About
-              </NavLink>
-            </li>
+              <div className="mt-6 flex flex-col gap-2">
+                <NavLink to="/" className={navLinkClass}>
+                  <div className="rounded-xl px-4 py-3 hover:bg-muted">Home</div>
+                </NavLink>
 
-                <li className="nav-item">
-              <Link className="nav-link" to="/categories">Categories</Link>
-            </li>
-          </ul>
+                <NavLink to="/about" className={navLinkClass}>
+                  <div className="rounded-xl px-4 py-3 hover:bg-muted">About</div>
+                </NavLink>
+
+                <NavLink to="/categories" className={navLinkClass}>
+                  <div className="rounded-xl px-4 py-3 hover:bg-muted">Categories</div>
+                </NavLink>
+
+                <div className="mt-4 grid gap-2">
+                  <Button variant="outline" className="rounded-xl">
+                    Sign in
+                  </Button>
+                  <Button className="rounded-xl">Shop now</Button>
+                </div>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
-    </nav>
-  );
+    </header>
+  )
 }

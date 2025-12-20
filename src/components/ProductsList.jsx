@@ -51,10 +51,6 @@ export default function ProductsList() {
               }} className="btn btn-dark p-2 m-1 " >{i} </button>
             })
           }
-
-
-
-
           <div className="row">
 
             {data.map((product) => (
