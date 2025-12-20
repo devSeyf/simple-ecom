@@ -1,4 +1,5 @@
-export default function Product({ item }) {
+import {Link,NavLink} from "react-router-dom";
+export default function Product({ item , showButton }) {
   return (
     <div className="card h-100 p-2">
       <img
@@ -10,9 +11,12 @@ export default function Product({ item }) {
 
       <div className="card-body">
         <h5 className="card-title">{item.title}</h5>
-        <p className="card-text">{item.description.slice(0, 60)}...</p>
+        <p className="card-text">{item.description}...</p>
         <p className="fw-bold">{item.price}$</p>
-        <button className="btn btn-primary">Buy</button>
+    {showButton && (
+  <Link to={`/product/${item.id}`} className="btn btn-primary">Buy</Link>
+)}
+
       </div>
     </div>
   );

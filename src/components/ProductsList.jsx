@@ -6,15 +6,29 @@ import ProductDetails from "./ProductDetails";
 
 export default function ProductsList() {
   const [data, setData] = useState([]);
+  const [categories, setCategory] = useState([]);
   const api_url = "https://fakestoreapi.com/products";
+  const api_url_category = "https://fakestoreapi.com/products/categories";
 
+
+  const getProducts = () => {
+    fetch(api_url)
+      .then(response => response.json())
+      .then(data => setData(data));
+
+  }
+
+
+  const getCategories = () => {
+    fetch(api_url_category)
+      .then(response => response.json())
+      .then(categories => setCategory(categories));
+
+  }
   useEffect(() => {
-    async function load() {
-      const res = await fetch(api_url);
-      const json = await res.json();
-      setData(json);
-    }
-    load();
+    getProducts()
+    getCategories()
+
   }, []);
 
   return (
@@ -26,8 +40,8 @@ export default function ProductsList() {
 
           {data.map((product) => (
             <div className="col-3" key={product.id}>
-              <Product item={product} />
-             
+              <Product item={product} showButton={true} />
+
             </div>
           ))}
 
