@@ -53,7 +53,7 @@ export default function Navbar() {
             </span>
           </NavLink>
 
-          <NavLink to="./Page/Dashboard.jsx" className={navLinkClass}>
+          <NavLink to="/dashboard" className={navLinkClass}>
             <span className="block rounded-full px-4 py-2 hover:bg-muted">
               Dashboard
             </span>
@@ -94,7 +94,7 @@ export default function Navbar() {
                   </div>
                 </NavLink>
 
-                <NavLink to="./Page/Dashboard.jsx" className={navLinkClass}>
+                <NavLink to="/dashboard" className={navLinkClass}>
                   <div className="rounded-xl px-4 py-3 hover:bg-muted">
                     Dashboard
                   </div>
