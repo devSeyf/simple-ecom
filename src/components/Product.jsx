@@ -10,8 +10,8 @@ export default function Product({ item , showButton }) {
       />
 
       <div className="card-body">
-        <h5 className="card-title">{item.title}</h5>
-        <p className="card-text">{item.description}...</p>
+        <h5 className="card-title">{item.title.slice(0,15) }</h5>
+        {/*<p className="card-text">{item.description.slice(0,10) }...</p>*/}
         <p className="fw-bold">{item.price}$</p>
     {showButton && (
   <Link to={`/product/${item.id}`} className="btn btn-primary">Buy</Link>

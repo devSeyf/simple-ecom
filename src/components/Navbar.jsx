@@ -1,12 +1,20 @@
-import { NavLink, Link } from "react-router-dom"
-import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from "@/components/ui/sheet"
+import { NavLink, Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetHeader,
+  SheetTitle,
+} from "@/components/ui/sheet";
 
 const navLinkClass = ({ isActive }) =>
   [
     "text-sm transition-colors",
-    isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground",
-  ].join(" ")
+    isActive
+      ? "text-foreground"
+      : "text-muted-foreground hover:text-foreground",
+  ].join(" ");
 
 export default function Navbar() {
   return (
@@ -28,19 +36,28 @@ export default function Navbar() {
         {/* Center: Desktop nav */}
         <nav className="hidden md:flex items-center gap-1 rounded-full border bg-background/60 p-1 backdrop-blur">
           <NavLink to="/" className={navLinkClass}>
-            <span className="block rounded-full px-4 py-2 hover:bg-muted">Home</span>
+            <span className="block rounded-full px-4 py-2 hover:bg-muted">
+              Home
+            </span>
           </NavLink>
 
-        <NavLink to="/categories" className={navLinkClass}>
-            <span className="block rounded-full px-4 py-2 hover:bg-muted">Categories</span>
+          <NavLink to="/categories" className={navLinkClass}>
+            <span className="block rounded-full px-4 py-2 hover:bg-muted">
+              Categories
+            </span>
           </NavLink>
-
 
           <NavLink to="/about" className={navLinkClass}>
-            <span className="block rounded-full px-4 py-2 hover:bg-muted">About</span>
+            <span className="block rounded-full px-4 py-2 hover:bg-muted">
+              About
+            </span>
           </NavLink>
 
-  
+          <NavLink to="./Page/Dashboard.jsx" className={navLinkClass}>
+            <span className="block rounded-full px-4 py-2 hover:bg-muted">
+              Dashboard
+            </span>
+          </NavLink>
         </nav>
 
         {/* Right: Actions */}
@@ -55,7 +72,12 @@ export default function Navbar() {
         <div className="md:hidden">
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="outline" size="icon" className="rounded-full" aria-label="Open menu">
+              <Button
+                variant="outline"
+                size="icon"
+                className="rounded-full"
+                aria-label="Open menu"
+              >
                 ☰
               </Button>
             </SheetTrigger>
@@ -67,15 +89,27 @@ export default function Navbar() {
 
               <div className="mt-6 flex flex-col gap-2">
                 <NavLink to="/" className={navLinkClass}>
-                  <div className="rounded-xl px-4 py-3 hover:bg-muted">Home</div>
+                  <div className="rounded-xl px-4 py-3 hover:bg-muted">
+                    Home
+                  </div>
+                </NavLink>
+
+                <NavLink to="./Page/Dashboard.jsx" className={navLinkClass}>
+                  <div className="rounded-xl px-4 py-3 hover:bg-muted">
+                    Dashboard
+                  </div>
                 </NavLink>
 
                 <NavLink to="/about" className={navLinkClass}>
-                  <div className="rounded-xl px-4 py-3 hover:bg-muted">About</div>
+                  <div className="rounded-xl px-4 py-3 hover:bg-muted">
+                    About
+                  </div>
                 </NavLink>
 
                 <NavLink to="/categories" className={navLinkClass}>
-                  <div className="rounded-xl px-4 py-3 hover:bg-muted">Categories</div>
+                  <div className="rounded-xl px-4 py-3 hover:bg-muted">
+                    Categories
+                  </div>
                 </NavLink>
 
                 <div className="mt-4 grid gap-2">
@@ -90,5 +124,5 @@ export default function Navbar() {
         </div>
       </div>
     </header>
-  )
+  );
 }
