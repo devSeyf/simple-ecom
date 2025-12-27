@@ -6,9 +6,12 @@ export default function ProductDetails() {
     const api_url = "https://fakestoreapi.com/products"
     const [product, setProduct] = useState({})
 
-    useEffect(() => {
-        fetch(`${api_url}/${Params.productId} `).then((res) => res.json()).then((product) => setProduct(product))
-    }, [])
+useEffect(() => {
+  fetch(`${api_url}/${Params.productId}`)
+    .then(res => res.json())
+    .then(setProduct)
+}, [Params.productId])
+
 
     return (<>
         <Product item={product} showButton={false} />
