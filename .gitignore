@@ -50,3 +50,7 @@ desktop.ini
 *.local
 tmp
 temp
+
+
+
+.gitignore
