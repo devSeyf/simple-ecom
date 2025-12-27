@@ -1,12 +1,12 @@
 import { NavLink, Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import { Button } from "/src/components/ui/button";
 import {
   Sheet,
   SheetContent,
   SheetTrigger,
   SheetHeader,
   SheetTitle,
-} from "@/components/ui/sheet";
+} from "./ui/sheet";
 
 const navLinkClass = ({ isActive }) =>
   [

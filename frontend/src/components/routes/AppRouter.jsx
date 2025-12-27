@@ -1,10 +1,10 @@
 
 import { Routes, Route  } from 'react-router-dom';
-import About from "../../components/About"
-import Home from "../../components/Home"
-import Categories from "../../components/Categories"
-import ProductDetails from "../../components/ProductDetails"
-import Dashboard from "../../components/Page/Dashboard"
+import About from "../About"
+import Home from "../Home"
+import Categories from "../Categories"
+import ProductDetails from "../ProductDetails"
+import Dashboard from "../Page/Dashboard"
 
 export default function AppRouter(){
     return (

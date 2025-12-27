@@ -1,5 +1,6 @@
+import { Button } from "bootstrap/dist/js/bootstrap.bundle.min"
 import Navbar from "./Navbar"
-import { Button } from "@/components/ui/button"
+
 export default function About( ) {
   return (
 
