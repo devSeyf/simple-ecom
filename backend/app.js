@@ -1,12 +1,10 @@
-const fs = require('fs').promises;
+const http = require("http");
 
-async function readFile() {
-  try {
-    const data = await fs.readFile('myfile.txt', 'utf8');
-    console.log(data);
-  } catch (error) {
-    console.error('Error reading file:', error);
-  }
-}
+const server = http.createServer((req, res) => {
+  res.write("Hello World");
+  res.end();
+});
 
-readFile();
+server.listen(3000, () => {
+  console.log("Server running on port 3000");
+});
