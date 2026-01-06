@@ -1,18 +1,12 @@
-// Import the HTTP module
-import { createServer } from 'http';
 
-// Create a server object
-const server = createServer((req, res) => {
-  // Set the response HTTP header with HTTP status and Content type
+
+const http = require('http')
+
+const server =http.createServer((req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.end('Hi !\n');
+})
 
-  // Send the response body as 'Hello, World!'
-  res.end('Hello, World!\n');
-});
-
-// Define the port to listen on const PORT = 3000;
-
-// Start the server and listen on the specified port
-server.listen(PORT, 'localhost', () => {
-  console.log(`Server running at http://localhost:${PORT}/`);
+server.listen(3000, 'localhost', () => {
+  console.log(`Server running at http://localhost:3000/`);
 });
